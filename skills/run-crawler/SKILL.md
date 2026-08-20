@@ -29,13 +29,13 @@ python -m venv .venv
 ## 3. scrapling 설치 확인
 
 ```
-python -c "import scrapling; print(scrapling.__version__)"
+<PY> -c "import scrapling; print(scrapling.__version__)"
 ```
 
 실패하면 설치한다.
 
 ```
-python -m pip install "scrapling[fetchers]"
+<PY> -m pip install "scrapling[fetchers]"
 ```
 
 `[fetchers]` 없이 설치하면 `Fetcher`를 불러올 때 `No module named 'curl_cffi'`가 난다.
@@ -72,7 +72,7 @@ print(f"{len(rows)}개 저장 -> quotes.csv")
 실행한다.
 
 ```
-python crawl.py
+<PY> crawl.py
 ```
 
 ## 5. 결과 확인

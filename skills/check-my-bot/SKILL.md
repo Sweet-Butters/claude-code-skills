@@ -23,11 +23,22 @@ ls
 
 ## 3. 패키지
 
+**반드시 `.venv` 안의 파이썬으로 확인한다.** 그냥 `python` 을 쓰면 가상환경 밖의
+파이썬이 잡혀서, 잘 깔려 있는데도 "없음"으로 잘못 나온다.
+
+Windows:
+
 ```
-python -c "import googleapiclient, google.genai, dotenv, requests; print('ok')"
+.venv\Scripts\python.exe -c "import googleapiclient, google.genai, dotenv, requests; print('ok')"
 ```
 
-`ok`가 나오면 통과. 아니면 `pip install -r requirements.txt`가 필요하다.
+macOS · Linux:
+
+```
+.venv/bin/python -c "import googleapiclient, google.genai, dotenv, requests; print('ok')"
+```
+
+`ok`가 나오면 통과. 아니면 `.venv` 안의 파이썬으로 `-m pip install -r requirements.txt`가 필요하다.
 
 ## 4. 키 3개
 
@@ -42,7 +53,7 @@ GEMINI_API_KEY=
 ## 5. Gmail 인증
 
 `credentials.json`과 `token.json`이 있는지 본다.
-`token.json`이 없으면 `python auth_gmail.py`를 한 번 돌려야 한다.
+`token.json`이 없으면 `.venv` 안의 파이썬으로 `auth_gmail.py`를 한 번 돌려야 한다.
 
 ## 6. 안전
 
