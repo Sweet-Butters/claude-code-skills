@@ -45,7 +45,10 @@ cd claude-code-skills
 bash install.sh
 ```
 
-설치 후 **Claude Code를 새로 켜면** `/` 를 눌렀을 때 목록에 나타납니다.
+설치 후 **Claude Code를 새로 켜면** 스킬 목록에 잡힙니다.
+Claude가 `description`을 보고 알아서 꺼내 쓰고, `/` 를 눌러 직접 부를 수도 있습니다.
+
+> 같은 이름의 스킬이 이미 있으면 `이름.backup-날짜` 로 옮겨 두고 설치합니다. 덮어쓰지 않습니다.
 
 ### 손으로 하려면
 
