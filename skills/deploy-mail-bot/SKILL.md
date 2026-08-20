@@ -88,6 +88,7 @@ Gmail 인증 파일처럼 파일 내용이 통째로 들어가는 항목은 **�
 
 | 증상 | 원인 |
 |---|---|
+| `RefreshError: invalid_client` | **`GOOGLE_CREDENTIALS_JSON` 또는 `GOOGLE_TOKEN_JSON` 이 잘못됐다.**<br>파일 내용을 통째로가 아니라 일부만 붙여넣었거나, 다른 프로젝트 키다.<br>로컬에서 `auth_gmail.py` 를 다시 돌려 새 `token.json` 을 만들고 다시 등록 |
 | `KeyError` / 빈 값 | Secrets 이름이 코드와 다르다. 철자를 대조 |
 | `ModuleNotFoundError` | `requirements.txt` 설치 단계가 빠졌다 |
 | 인증 실패 | Gmail 토큰이 Secrets에 안 들어갔거나 만료 |
@@ -105,5 +106,15 @@ Gmail 인증 파일처럼 파일 내용이 통째로 들어가는 항목은 **�
 
 ---
 
-> 이 스킬의 파일 이름·Secrets 이름·워크플로 구조는 `Sweet-Butters/mail-notifier` 실물과
-> 대조해 작성했습니다 (2026-08-20 확인).
+> **검증 기록 (2026-08-20)** — 저장소를 빈 폴더에 clone 하고, GitHub Actions 가 하는 일을
+> 로컬에서 그대로 재현해 확인했습니다.
+>
+> | 확인한 것 | 결과 |
+> |---|---|
+> | 워크플로 구조 | `schedule`(*/10) · `workflow_dispatch` · `permissions: contents: write` · `concurrency` · `timeout-minutes` 모두 존재 |
+> | Secrets 5개 | 워크플로가 요구하는 이름과 **코드가 읽는 환경변수가 완전히 일치** (누락 0) |
+> | 파일 복원 | `GOOGLE_CREDENTIALS_JSON`·`GOOGLE_TOKEN_JSON` → `credentials.json`·`token.json`,<br>`auth_gmail.py` 가 여는 경로와 **일치** |
+> | 상태 파일 커밋 | 목록의 7개 파일이 저장소에 **모두 존재** |
+> | 실제 실행 | 더미 자격증명으로 재현 → Google OAuth 서버까지 도달해 `invalid_client` 반환.<br>즉 **복원·전달·진입 경로가 전부 정상** |
+>
+> 실제 계정으로 Actions 를 돌려 초록불을 보는 것만 남았습니다.
