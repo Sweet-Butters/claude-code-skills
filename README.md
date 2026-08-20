@@ -27,6 +27,11 @@ description: 알림봇을 점검하고 실행한다. 봇이 안 돌 때도 쓴�
 `description`이 가장 중요합니다. Claude는 **이 한 줄을 보고 언제 이 스킬을 꺼낼지** 판단합니다.
 "무엇을 하는지"뿐 아니라 **"언제 쓰는지"**까지 적어야 제때 꺼내 씁니다.
 
+> **강의를 그대로 따라가실 거면 이 저장소가 아니라
+> [yonsei-claude-code](https://github.com/Sweet-Butters/yonsei-claude-code) 를 받으세요.**
+> 발표자료와 스킬이 함께 들어 있어 `git clone` 후 `/run-course` 한 줄이면 됩니다.
+> 이 저장소는 **다른 프로젝트에서도 스킬을 쓰고 싶을 때** 설치용입니다.
+
 ## 설치
 
 ### Windows (PowerShell)
@@ -63,6 +68,7 @@ Claude가 `description`을 보고 알아서 꺼내 쓰고, `/` 를 눌러 직접
 
 | 스킬 | 언제 쓰나 | 차시 |
 |---|---|---|
+| [**`run-course`**](skills/run-course/SKILL.md) | **강의 전체를 처음부터 재현** — 대부분 이것만 쓰면 됩니다 | 전체 |
 | [`check-my-bot`](skills/check-my-bot/SKILL.md) | 알림봇 폴더가 지금 돌 준비가 됐는지 점검 | 4강 |
 | [`run-crawler`](skills/run-crawler/SKILL.md) | 크롤러를 점검하고 실행해 CSV로 저장 | 4강 |
 | [`run-mail-bot`](skills/run-mail-bot/SKILL.md) | 알림봇을 내 컴퓨터에서 점검하고 실행 | 4강 |
