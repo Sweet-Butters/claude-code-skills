@@ -63,16 +63,22 @@ git --version
 
 ### 2강 — 크롤러
 
-`run-crawler` 스킬로 넘긴다. 그 스킬이 가상환경·설치·실행·CSV 확인까지 한다.
+**강의 저장소 루트에서** `run-crawler` 스킬로 넘긴다.
+저장소에 `코드/crawl.py` 가 이미 있으므로 **새로 쓰지 말고 그것을 쓰게 한다.**
 끝나면 `quotes.csv` 의 행 수를 보여 준다.
 
 ### 3강 — 알림봇 셋업
 
+**강의 저장소 루트에서** 받는다. 받은 폴더는 `.gitignore` 에 들어 있어 강의 저장소를 더럽히지 않는다.
+
 ```
 git clone https://github.com/Sweet-Butters/mail-notifier.git
 ```
+```
+cd mail-notifier
+```
 
-그 다음은 `run-mail-bot` 스킬로 넘긴다.
+**여기서부터는 봇 폴더 안이다.** 그 다음은 `run-mail-bot` 스킬로 넘긴다.
 
 > API 키 3종(Gmail · Gemini · Telegram) 발급은 **사용자가 웹에서 직접** 해야 한다.
 > `3강_commands.md` 의 URL을 하나씩 안내하고, 받은 값을 `.env` 에 넣는 것까지만 돕는다.
@@ -92,10 +98,24 @@ skill을 .claude/skills/ 아래에 만들어줘. description에는 "언제 쓰�
 
 ### 5강 — 배포
 
-`deploy-mail-bot` 스킬로 넘긴다.
+**반드시 `mail-notifier` 폴더 안에서** `deploy-mail-bot` 스킬로 넘긴다.
+강의 저장소 루트에서 하면 엉뚱한 저장소를 push 하게 된다.
+
+```
+cd mail-notifier
+```
 
 > 저장소 만들기와 Secrets 등록은 **사용자가 GitHub 웹에서** 한다.
 > 스킬은 순서를 잡아 주고 빠뜨린 것을 잡아낸다.
+
+## 2-1. 지금 어느 폴더인지 늘 확인한다
+
+차시마다 실행 위치가 다르다. 명령 전에 한 번씩 확인한다.
+
+| 차시 | 실행 위치 |
+|---|---|
+| 1강 · 2강 | 강의 저장소 루트 |
+| 3강 이후 | `mail-notifier/` 안 |
 
 ## 3. 매 차시가 끝날 때마다
 

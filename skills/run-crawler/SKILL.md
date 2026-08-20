@@ -44,7 +44,14 @@ python -m venv .venv
 ## 4. 크롤링 실행
 
 대상은 연습용 공개 사이트 `https://quotes.toscrape.com/` 이다.
-스크립트가 없으면 아래 내용으로 `crawl.py`를 만든다.
+**강의 저장소 안에서 돌고 있다면 `코드/crawl.py` 가 이미 있다.**
+그건 동작이 확인된 코드이므로 **새로 쓰지 말고 그것을 쓴다.**
+
+```
+<PY> 코드/crawl.py
+```
+
+`코드/` 가 없는 다른 폴더라면 아래 내용으로 `crawl.py` 를 만든다.
 
 ```python
 import csv
@@ -74,6 +81,8 @@ print(f"{len(rows)}개 저장 -> quotes.csv")
 ```
 <PY> crawl.py
 ```
+
+여러 페이지를 돌리려면 저장소의 `코드/crawl_all.py` 를 쓴다 (3페이지 30행, 확인됨).
 
 ## 5. 결과 확인
 
